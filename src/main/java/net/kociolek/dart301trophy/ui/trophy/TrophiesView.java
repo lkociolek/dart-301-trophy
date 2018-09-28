@@ -10,6 +10,7 @@ import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.ui.*;
 import net.kociolek.dart301trophy.domain.trophy.Trophy;
 import net.kociolek.dart301trophy.domain.trophy.TrophyRepository;
+import net.kociolek.dart301trophy.service.DivisionService;
 import net.kociolek.dart301trophy.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -28,13 +29,13 @@ public class TrophiesView extends VerticalLayout implements View {
     @Autowired
     TrophyRepository trophyRepository;
     @Autowired
-    GameService gameService;
+    DivisionService divisionService;
 
     @Autowired
-    public TrophiesView(TrophyRepository trophyRepository, TrophiesEditor trophiesEditor, GameService gameService) {
+    public TrophiesView(TrophyRepository trophyRepository, TrophiesEditor trophiesEditor, DivisionService divisionService) {
         this.trophyRepository = trophyRepository;
         this.trophiesEditor = trophiesEditor;
-        this.gameService = gameService;
+        this.divisionService = divisionService;
         this.grid = new Grid<>(Trophy.class);
         this.filter = new TextField();
         this.addNewBtn = new Button("Dodaj wydarzenie");
@@ -77,7 +78,7 @@ public class TrophiesView extends VerticalLayout implements View {
             Button button = new Button("Rozpocznij zawody");
             button.addClickListener(click -> {
                 VaadinService.getCurrentRequest().setAttribute("trophyId", trophy.getId());
-                gameService.generateDivisionGames(trophy);
+                divisionService.generateGames(trophy);
                 getUI().getNavigator().navigateTo("DivisionView");
             });
             return button;

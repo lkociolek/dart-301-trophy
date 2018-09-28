@@ -1,6 +1,5 @@
 package net.kociolek.dart301trophy.service;
 
-import net.kociolek.dart301trophy.domain.player.Division;
 import net.kociolek.dart301trophy.domain.game.*;
 import net.kociolek.dart301trophy.domain.player.Player;
 import net.kociolek.dart301trophy.domain.player.PlayerRepository;
@@ -8,7 +7,6 @@ import net.kociolek.dart301trophy.domain.trophy.Trophy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
 
 @Service
 public abstract class GameService {

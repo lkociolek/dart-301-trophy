@@ -9,11 +9,13 @@ import net.kociolek.dart301trophy.domain.player.Player;
 import net.kociolek.dart301trophy.domain.player.PlayerRepository;
 import net.kociolek.dart301trophy.domain.trophy.Trophy;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
+@Service
 public class FinalService extends GameService {
 
     Player player;
