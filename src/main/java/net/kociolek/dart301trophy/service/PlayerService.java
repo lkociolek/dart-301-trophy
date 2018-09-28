@@ -13,11 +13,10 @@ import java.util.stream.Collectors;
 @Service
 public class PlayerService {
 
+    Player player;
+
     @Autowired
     PlayerRepository playerRepository;
-
-    String name;
-    Player player;
 
     // stwórz gracza
     public void createPlayer(Trophy trophy, String name) {

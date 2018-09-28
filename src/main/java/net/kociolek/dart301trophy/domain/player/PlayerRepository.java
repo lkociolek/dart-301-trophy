@@ -21,4 +21,6 @@ public interface PlayerRepository extends PagingAndSortingRepository<Player, Str
     Player findPlayerByTrophyAndTrophySemifinal(@Param("trophy") Trophy trophy, @Param("trophySemifinal") TrophySemifinal trophySemifinal);
     Player findPlayerByTrophyAndTrophyFinal(@Param("trophy") Trophy trophy, @Param("trophyFinal") TrophyFinal trophyFinal);
     List<Player> findAllByTrophy(@Param("trophy") Trophy trophy);
+    List<Player> findAll();
+    List<Player> findAllByNameContainingIgnoreCase(String name);
 }
